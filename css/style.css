@@ -56,3 +56,13 @@ body {
   margin: 0 10px;
   cursor: pointer;
 }
+
+#logo {
+  width: 70px;
+}
+.nav-link {
+  color: aliceblue;
+}
+.slider {
+  height: 200px;
+}
