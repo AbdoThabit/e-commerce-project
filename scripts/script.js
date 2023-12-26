@@ -5,6 +5,7 @@ const products = [
     description: "Nice Colorful Shirt",
     price: 109.99,
     imagePath: "imgs/products/men/Shirt.jpg",
+    category: "men's",
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ const products = [
     description: "Black Jacket",
     price: 289.99,
     imagePath: "imgs/products/men/Jacket.jpg",
+    category: "men's",
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ const products = [
     description: "Simple black T-Shirt",
     price: 39.99,
     imagePath: "imgs/products/men/T-Shirt.jpg",
+    category: "men's",
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ const products = [
     description: "Classic brown Shose",
     price: 160,
     imagePath: "imgs/products/men/Shose.jpg",
+    category: "men's",
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ const products = [
     description: "White Sport Shose for running",
     price: 110,
     imagePath: "imgs/products/men/SportShoes.jpg",
+    category: "men's",
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ const products = [
     description: "Nice & Simple Glasses",
     price: 40.99,
     imagePath: "imgs/products/men/SunGlasses.jpg",
+    category: "men's",
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ const products = [
     description: "Classic brown belt",
     price: 39.99,
     imagePath: "imgs/products/men/Belt.jpg",
+    category: "men's",
   },
   {
     id: 8,
@@ -54,6 +61,7 @@ const products = [
     description: "Simple beige trousers",
     price: 159.99,
     imagePath: "imgs/products/men/Trousers.jpg",
+    category: "men's",
   },
   {
     id: 9,
@@ -61,6 +69,7 @@ const products = [
     description: "Tall black dress",
     price: 259.99,
     imagePath: "imgs/products/women/Dress.jpg",
+    category: "women's",
   },
   {
     id: 10,
@@ -68,6 +77,7 @@ const products = [
     description: "simple bigie T-Shirt",
     price: 49.99,
     imagePath: "imgs/products/women/T-Shirt.jpg",
+    category: "women's",
   },
   {
     id: 11,
@@ -75,6 +85,7 @@ const products = [
     description: "Beautiful dark Trousers",
     price: 120,
     imagePath: "imgs/products/women/Trousers.jpg",
+    category: "women's",
   },
   {
     id: 12,
@@ -82,6 +93,7 @@ const products = [
     description: "Stylish Women shose",
     price: 149.99,
     imagePath: "imgs/products/women/Shose.jpg",
+    category: "women's",
   },
   {
     id: 13,
@@ -89,6 +101,7 @@ const products = [
     description: "Simple & Cute sport shose ",
     price: 100.99,
     imagePath: "imgs/products/women/SportShoes.jpg",
+    category: "women's",
   },
   {
     id: 14,
@@ -96,6 +109,7 @@ const products = [
     description: "Simple brown belt for Women",
     price: 79.99,
     imagePath: "imgs/products/women/belt.jpg",
+    category: "women's",
   },
   {
     id: 15,
@@ -103,6 +117,7 @@ const products = [
     description: "Simple hat Women",
     price: 10.99,
     imagePath: "imgs/products/women/Hat.jpg",
+    category: "women's",
   },
   {
     id: 16,
@@ -110,6 +125,7 @@ const products = [
     description: "Simple brown belt for Women",
     price: 100.99,
     imagePath: "imgs/products/women/SunGlasses.jpg",
+    category: "women's",
   },
   {
     id: 17,
@@ -117,6 +133,7 @@ const products = [
     description: "Lovely dark T-shirt",
     price: 70.99,
     imagePath: "imgs/products/kids/BoyT-Shirt.jpg",
+    category: "kids",
   },
   {
     id: 18,
@@ -124,6 +141,7 @@ const products = [
     description: "Lovely blue T-shirt",
     price: 75,
     imagePath: "imgs/products/kids/GirlT-Shirt.jpg",
+    category: "kids",
   },
   {
     id: 19,
@@ -131,6 +149,7 @@ const products = [
     description: "Lovely dress",
     price: 119.99,
     imagePath: "imgs/products/kids/Dress.jpg",
+    category: "kids",
   },
   {
     id: 20,
@@ -138,6 +157,7 @@ const products = [
     description: "Very cute pink shose",
     price: 110,
     imagePath: "imgs/products/kids/PinkShose.jpg",
+    category: "kids",
   },
   {
     id: 21,
@@ -145,13 +165,15 @@ const products = [
     description: "Lovely White Shose",
     price: 84.99,
     imagePath: "imgs/products/kids/WhiteShose.jpg",
+    category: "kids",
   },
   {
     id: 22,
     name: "Boys White Shose",
-    description: "Lovely White Shose",
+    description: "Stylish Shose for Boys",
     price: 84.99,
-    imagePath: "imgs/products/kids/WhiteShose.jpg",
+    imagePath: "imgs/products/kids/Shose.jpg",
+    category: "kids",
   },
   {
     id: 23,
@@ -159,6 +181,7 @@ const products = [
     description: "Funny monster hat",
     price: 10.99,
     imagePath: "imgs/products/kids/Hat.jpg",
+    category: "kids",
   },
 
   {
@@ -167,6 +190,7 @@ const products = [
     description: "Nice black & gray cap",
     price: 12.99,
     imagePath: "imgs/products/kids/Cap.jpg",
+    category: "kids",
   },
 ];
 
@@ -184,20 +208,25 @@ function showProducts() {
   img.src = products[1].imagePath;
   var cardBodyDiv = document.createElement("div");
   cardBodyDiv.classList.add("card-body");
+
   var cardTitleH5 = document.createElement("h5");
   cardTitleH5.classList.add("card-title");
-  cardTitleH5.innerText = products[1].name;
+  cardTitleH5.innerText = "Product name :" + products[1].name;
   var priceSpan = document.createElement("span");
   priceSpan.classList.add("price");
-  priceSpan.innerText = "price : " + products[1].price;
+  priceSpan.innerHTML = "price : " + products[1].price + "<br>";
   var btn = document.createElement("button");
   btn.innerText = "Add to Cart";
   btn.classList.add("btn");
   btn.classList.add("btn-dark");
+  var descriptionDiv = document.createElement("div");
+  descriptionDiv.innerText = products[1].description;
 
   cardBodyDiv.appendChild(cardTitleH5);
+  cardBodyDiv.appendChild(descriptionDiv);
   cardBodyDiv.appendChild(priceSpan);
   cardBodyDiv.appendChild(btn);
+  cardDiv.appendChild(cardTitleH5);
   cardDiv.appendChild(img);
   cardDiv.appendChild(cardBodyDiv);
   divCol.appendChild(cardDiv);
@@ -205,5 +234,53 @@ function showProducts() {
 
   var container = document.getElementById("maindiv");
   container.appendChild(divRow);
+  console.log(descriptionDiv.innerText);
 }
-console.log(products[1].imagePath);
+function getAllProducts() {
+  var row = document.getElementById("productsrow");
+  for (var i = 0; i < products.length; i++) {
+    var divCol = document.createElement("div");
+    divCol.classList.add("col-md-3");
+    var cardDiv = document.createElement("div");
+    cardDiv.classList.add("card", products[i].category);
+    var img = document.createElement("img");
+    img.classList.add("card-img-top");
+    img.classList.add("imgproduct");
+    img.src = products[i].imagePath;
+    var cardBodyDiv = document.createElement("div");
+    cardBodyDiv.classList.add("card-body");
+    var cardTitleH5 = document.createElement("h5");
+    cardTitleH5.classList.add("card-title");
+    cardTitleH5.innerText = "Product name :" + products[i].name;
+    var priceSpan = document.createElement("span");
+    priceSpan.classList.add("price");
+    priceSpan.innerHTML = "price : " + products[i].price + "<br>";
+    var btn = document.createElement("button");
+    btn.innerText = "Add to Cart";
+    btn.classList.add("btn");
+    btn.classList.add("btn-dark");
+    var descriptionDiv = document.createElement("div");
+    descriptionDiv.innerText = products[i].description;
+
+    cardBodyDiv.appendChild(cardTitleH5);
+    cardBodyDiv.appendChild(descriptionDiv);
+    cardBodyDiv.appendChild(priceSpan);
+    cardBodyDiv.appendChild(btn);
+    cardDiv.appendChild(cardTitleH5);
+    cardDiv.appendChild(img);
+    cardDiv.appendChild(cardBodyDiv);
+    divCol.appendChild(cardDiv);
+    row.appendChild(divCol);
+  }
+}
+getAllProducts();
+
+function filterItems(event) {
+  var cards = document.getElementsByClassName("card");
+  for (var i = 0; i < cards.length; i++) {
+    if (!cards[i].classList.contains(event.target.id)) {
+      cards[i].classList.add("hidden");
+    }
+  }
+  console.log(event.target.id);
+}
