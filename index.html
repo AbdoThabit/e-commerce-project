@@ -58,7 +58,7 @@
       </div>
     </nav>
 
-    <div class="container-fluid p-0 mb-5">
+    <!-- <div class="container-fluid p-0 mb-5">
       <div class="row">
         <img
           src="imgs/imgsTobeSlided/3.jpg"
@@ -66,44 +66,60 @@
           alt="Slider Image"
         />
       </div>
-    </div>
+    </div> -->
 
     <div class="container" id="maindiv">
       <div class="container mb-4">
+        <img
+          src="imgs/imgsTobeSlided/asd.jpg"
+          class="slider col-md-12 mb-5"
+          alt="Slider Image"
+        />
         <div class="row">
-          <div class="col-3">
+          <div class="col-1">
+            <button
+              type="button"
+              class="btn btn-dark btn-block"
+              id="all"
+              onclick="filterItems(event)"
+            >
+              All
+            </button>
+          </div>
+          <div class="col-1 me-2">
             <button
               type="button"
               class="btn btn-dark btn-block"
               id="men's"
               onclick="filterItems(event)"
             >
-              Men's Collection
+              Men's
             </button>
           </div>
 
-          <div class="col-3">
+          <div class="col-1 me-4">
             <button
               type="button"
               class="btn btn-dark btn-block"
               id="women's"
               onclick="filterItems(event)"
             >
-              Women's Collection
+              Women's
             </button>
           </div>
-          <div class="col-3">
+          <div class="col-1">
             <button
               type="button"
               class="btn btn-dark btn-block"
               id="kids"
               onclick="filterItems(event)"
             >
-              Kids' Collection
+              Kids'
             </button>
           </div>
         </div>
       </div>
+
       <div class="row" id="productsrow"></div>
       <!-- First Row: Slider Image -->
       <!-- <div class="row">

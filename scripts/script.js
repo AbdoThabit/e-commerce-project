@@ -278,8 +278,16 @@ getAllProducts();
 function filterItems(event) {
   var cards = document.getElementsByClassName("card");
   for (var i = 0; i < cards.length; i++) {
-    if (!cards[i].classList.contains(event.target.id)) {
-      cards[i].classList.add("hidden");
+    if (event.target.id == "all") cards[i].classList.remove("hidden");
+    else {
+      if (
+        cards[i].classList.contains(event.target.id) &&
+        cards[i].classList.contains("hidden")
+      )
+        cards[i].classList.remove("hidden");
+
+      if (!cards[i].classList.contains(event.target.id))
+        cards[i].classList.add("hidden");
     }
   }
   console.log(event.target.id);
