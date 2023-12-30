@@ -1,21 +1,3 @@
-function forwardImg() {
-  var img = document.getElementById("slider");
-  var src = img.getAttribute("src");
-
-  imgNum = Number(src.charAt(20));
-  if (imgNum == 2) imgNum = 1;
-  else imgNum += 1;
-  var newSrc = "imgs/imgsTobeSlided/" + imgNum + ".jpg";
-
-  img.setAttribute("src", newSrc);
-}
-function startSlidShow() {
-  intervalID = setInterval(forwardImg, 1000);
-}
-var arr = document.cookie.split("=");
-var carts = arr[1].split(",");
-var cartArr = carts || [];
-
 const products = [
   {
     id: 1,
@@ -212,64 +194,44 @@ const products = [
   },
 ];
 
-function getAllProducts() {
-  var row = document.getElementById("productsrow");
-  for (var i = 0; i < products.length; i++) {
-    var divCol = document.createElement("div");
-    divCol.classList.add("col-md-3");
-    var cardDiv = document.createElement("div");
-    cardDiv.classList.add("card", products[i].category, "mb-5");
-    var img = document.createElement("img");
-    img.classList.add("card-img-top");
-    img.classList.add("imgproduct");
-    img.src = products[i].imagePath;
-    var cardBodyDiv = document.createElement("div");
-    cardBodyDiv.classList.add("card-body");
-    var cardTitleH5 = document.createElement("h5");
-    cardTitleH5.classList.add("card-title");
-    cardTitleH5.innerText = products[i].name;
-    var priceSpan = document.createElement("span");
-    priceSpan.classList.add("price");
-    priceSpan.innerHTML = "price : " + products[i].price + "<br>";
-    var btn = document.createElement("button");
-    btn.setAttribute("id", products[i].id);
-    btn.setAttribute("onclick", "saveId(event)");
-    btn.innerText = "Add to Cart";
-    btn.classList.add("btn");
-    btn.classList.add("btn-dark");
-    var descriptionDiv = document.createElement("div");
-    descriptionDiv.innerText = products[i].description;
-
-    cardBodyDiv.appendChild(cardTitleH5);
-    cardBodyDiv.appendChild(descriptionDiv);
-    cardBodyDiv.appendChild(priceSpan);
-    cardBodyDiv.appendChild(btn);
-    cardDiv.appendChild(cardTitleH5);
-    cardDiv.appendChild(img);
-    cardDiv.appendChild(cardBodyDiv);
-    divCol.appendChild(cardDiv);
-    row.appendChild(divCol);
-  }
-}
-
-function filterItems(event) {
-  var cards = document.getElementsByClassName("card");
-  for (var i = 0; i < cards.length; i++) {
-    if (event.target.id == "all") cards[i].classList.remove("hidden");
-    else {
-      if (
-        cards[i].classList.contains(event.target.id) &&
-        cards[i].classList.contains("hidden")
-      )
-        cards[i].classList.remove("hidden");
-
-      if (!cards[i].classList.contains(event.target.id))
-        cards[i].classList.add("hidden");
+sum = 0;
+function viewCarts() {
+  var divContainer = document.getElementById("maindiv");
+  console.log(divContainer);
+  var arr = document.cookie.split("=");
+  var carts = arr[1].split(",");
+  console.log(carts);
+  for (var i = 0; i < carts.length; i++) {
+    for (var j = 0; j < products.length; j++) {
+      if (Number(carts[i]) == products[j].id) {
+        var row = document.createElement("div");
+        row.classList.add("row", "mb-4");
+        var imgDiv = document.createElement("div");
+        imgDiv.classList.add("col-md-3");
+        var img = document.createElement("img");
+        img.setAttribute("src", products[j].imagePath);
+        img.style["width"] = "100%";
+        var detailsDiv = document.createElement("div");
+        detailsDiv.classList.add("col-md-9", "mt-3");
+        var p1 = document.createElement("p");
+        p1.innerText = "Description : " + products[j].description;
+        var p2 = document.createElement("p");
+        p2.innerText = "Category : " + products[j].category;
+        var p3 = document.createElement("p");
+        p3.innerText = "price : " + products[j].price;
+        var btn = document.createElement("button");
+        btn.classList.add("btn", "btn-dark", "btn-block");
+        btn.innerText = "remove";
+        imgDiv.appendChild(img);
+        detailsDiv.appendChild(p1);
+        detailsDiv.appendChild(p2);
+        detailsDiv.appendChild(p3);
+        detailsDiv.appendChild(btn);
+        row.appendChild(imgDiv);
+        row.appendChild(detailsDiv);
+        console.log(row);
+        divContainer.appendChild(row);
+      }
     }
   }
-}
-
-function saveId(event) {
-  cartArr.push(event.target.id);
-  document.cookie = "arr=" + cartArr;
 }
