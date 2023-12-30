@@ -1,3 +1,19 @@
+function forwardImg() {
+  var img = document.getElementById("slider");
+  var src = img.getAttribute("src");
+
+  imgNum = Number(src.charAt(20));
+  if (imgNum == 2) imgNum = 1;
+  else imgNum += 1;
+  var newSrc = "imgs/imgsTobeSlided/" + imgNum + ".jpg";
+
+  img.setAttribute("src", newSrc);
+}
+function startSlidShow() {
+  intervalID = setInterval(forwardImg, 3000);
+}
+var cartArr = [];
+
 const products = [
   {
     id: 1,
@@ -194,7 +210,6 @@ const products = [
   },
 ];
 
-console.log(products);
 function showProducts() {
   var divRow = document.createElement("div");
   divRow.classList.add("row");
@@ -242,7 +257,7 @@ function getAllProducts() {
     var divCol = document.createElement("div");
     divCol.classList.add("col-md-3");
     var cardDiv = document.createElement("div");
-    cardDiv.classList.add("card", products[i].category);
+    cardDiv.classList.add("card", products[i].category, "mb-5");
     var img = document.createElement("img");
     img.classList.add("card-img-top");
     img.classList.add("imgproduct");
@@ -251,11 +266,12 @@ function getAllProducts() {
     cardBodyDiv.classList.add("card-body");
     var cardTitleH5 = document.createElement("h5");
     cardTitleH5.classList.add("card-title");
-    cardTitleH5.innerText = "Product name :" + products[i].name;
+    cardTitleH5.innerText = products[i].name;
     var priceSpan = document.createElement("span");
     priceSpan.classList.add("price");
     priceSpan.innerHTML = "price : " + products[i].price + "<br>";
     var btn = document.createElement("button");
+    //btn.setAttribute("id",products[i].id)
     btn.innerText = "Add to Cart";
     btn.classList.add("btn");
     btn.classList.add("btn-dark");
@@ -273,7 +289,6 @@ function getAllProducts() {
     row.appendChild(divCol);
   }
 }
-getAllProducts();
 
 function filterItems(event) {
   var cards = document.getElementsByClassName("card");
@@ -290,5 +305,4 @@ function filterItems(event) {
         cards[i].classList.add("hidden");
     }
   }
-  console.log(event.target.id);
 }

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body onload="">
+  <body onload="getAllProducts()">
     <nav class="navbar navbar-expand-lg bg-dark">
       <div class="container-fluid">
         <a href="#"><img src="imgs/logo4.jpg" alt="" id="logo" /></a>
@@ -29,7 +29,7 @@
         >
           <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">About</a>
@@ -39,8 +39,7 @@
             </li>
             <li class="nav-item">
               <div class="d-flex align-items-center">
-                <a class="nav-link" href="#">Cart</a>
-                <span class="numofcarts text-light">0</span>
+                <a class="nav-link" href="#">My Cart(0)</a>
                 <i class="fa-solid fa-cart-shopping text-light"></i>
               </div>
             </li>
@@ -58,23 +57,25 @@
       </div>
     </nav>
 
-    <!-- <div class="container-fluid p-0 mb-5">
+    <div class="container-fluid p-0 mb-5">
       <div class="row">
         <img
-          src="imgs/imgsTobeSlided/3.jpg"
-          class="slider"
+          src="imgs/imgsTobeSlided/1.jpg"
+          class="slider p-0"
+          id="slider"
           alt="Slider Image"
+          onclick="startSlidShow()"
         />
       </div>
-    </div> -->
+    </div>
 
     <div class="container" id="maindiv">
       <div class="container mb-4">
-        <img
+        <!-- <img
           src="imgs/imgsTobeSlided/asd.jpg"
           class="slider col-md-12 mb-5"
           alt="Slider Image"
-        />
+        /> -->
         <div class="row">
           <div class="col-1">
             <button
@@ -128,217 +129,7 @@
           src="imgs/imgsTobeSlided/3.jpg"
           class="slider"
           alt="Slider Image"
-        />
-       
-       
-        <div class="row mt-4">
-         
-          <div class="col-md-3">
-            <div class="card">
-              <img
-                src="imgs/products/men/8.jpg"
-                class="card-img-top imgproduct"
-                alt="Product 1"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Product 1</h5>
-                <span class="price">$19.99</span>
-                <button class="btn btn-primary">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-
-         
-          <div class="col-md-3">
-            <div class="card">
-              <img
-                src="imgs/products/kids/Cap.jpg"
-                class="card-img-top imgproduct"
-                alt="Product 2"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Product 2</h5>
-                <span class="price">$29.99</span>
-                <button class="btn btn-dark">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-
-          
-          <div class="col-md-3">
-            <div class="card">
-              <img
-                src="imgs/products/women/7.jpg"
-                class="card-img-top imgproduct"
-                alt="Product 3"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Product 3</h5>
-                <span class="price">$39.99</span>
-                <button class="btn btn-primary">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="card">
-              <img
-                src="imgs/products/women/8.jpg"
-                class="card-img-top imgproduct"
-                alt="Product 1"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Product 1</h5>
-                <span class="price">$19.99</span>
-                <button class="btn btn-dark">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row mt-4">
-         
-          <div class="col-md-4">
-            <div class="card">
-              <img
-                src="imgs/products/kids/4.jpg"
-                class="card-img-top imgproduct"
-                alt="Product 1"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Product 1</h5>
-                <span class="price">$19.99</span>
-                <button class="btn btn-primary">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-
-          
-          <div class="col-md-4">
-            <div class="card">
-              <img
-                src="imgs/products/kids/5.jpg"
-                class="card-img-top imgproduct"
-                alt="Product 2"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Product 2</h5>
-                <span class="price">$29.99</span>
-                <button class="btn btn-primary">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-
-          
-          <div class="col-md-4">
-            <div class="card">
-              <img
-                src="imgs/products/kids/6.jpg"
-                class="card-img-top imgproduct"
-                alt="Product 3"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Product 3</h5>
-                <span class="price">$39.99</span>
-                <button class="btn btn-primary">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img
-              src="imgs/products/1.jpg"
-              class="card-img-top imgproduct"
-              alt="Product 1"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Product 1</h5>
-              <span class="price">$19.99</span>
-              <button class="btn btn-primary">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-        
-        <div class="col-md-4">
-          <div class="card">
-            <img
-              src="imgs/products/2.jpg"
-              class="card-img-top imgproduct"
-              alt="Product 2"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Product 2</h5>
-              <span class="price">$29.99</span>
-              <button class="btn btn-primary">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-       
-        <div class="col-md-4">
-          <div class="card">
-            <img
-              src="imgs/products/3.jpg"
-              class="card-img-top imgproduct"
-              alt="Product 3"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Product 3</h5>
-              <span class="price">$39.99</span>
-              <button class="btn btn-primary">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row mt-4">
-        
-        <div class="col-md-4">
-          <div class="card">
-            <img
-              src="imgs/products/1.jpg"
-              class="card-img-top imgproduct"
-              alt="Product 1"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Product 1</h5>
-              <span class="price">$19.99</span>
-              <button class="btn btn-primary">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-       
-        <div class="col-md-4">
-          <div class="card">
-            <img
-              src="imgs/products/2.jpg"
-              class="card-img-top imgproduct"
-              alt="Product 2"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Product 2</h5>
-              <span class="price">$29.99</span>
-              <button class="btn btn-primary">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-
-        
-        <div class="col-md-4">
-          <div class="card">
-            <img
-              src="imgs/products/3.jpg"
-              class="card-img-top imgproduct"
-              alt="Product 3"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Product 3</h5>
-              <span class="price">$39.99</span>
-              <button class="btn btn-primary">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
+        /> -->
     </div>
 
     <!-- Footer with the same background and text color -->
@@ -346,17 +137,12 @@
       <div class="container">
         <div class="row">
           <!-- Left column set -->
-          <div class="col-md-9">
-            <!-- Add content for the left column set here -->
-          </div>
-
-          <!-- Right column set -->
-          <div class="col-md-3">
+          <div class="col-md-11">
             <div class="social-icons">
               <ul class="social-icons gap-5 d-flex list-unstyled">
                 <li>
-                  <div class="contact-us">
-                    <p>Contact Us</p>
+                  <div class="follow-us">
+                    <p>Follow Us</p>
                   </div>
                 </li>
                 <li>
@@ -372,6 +158,12 @@
                 <!-- Add more social icons as needed -->
               </ul>
             </div>
+          </div>
+          <!-- Right column set -->
+          <div class="col-md-1">
+            <a href="#maindiv"
+              ><img src="imgs/icons8-arrow-up-50 (2).png" style="width: 20px"
+            /></a>
           </div>
         </div>
       </div>
