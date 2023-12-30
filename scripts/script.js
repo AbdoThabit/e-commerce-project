@@ -10,11 +10,9 @@ function forwardImg() {
   img.setAttribute("src", newSrc);
 }
 function startSlidShow() {
-  intervalID = setInterval(forwardImg, 1000);
+  intervalID = setInterval(forwardImg, 1500);
 }
-var arr = document.cookie.split("=");
-var carts = arr[1].split(",");
-var cartArr = carts || [];
+var cartArr = [];
 
 const products = [
   {
@@ -211,6 +209,20 @@ const products = [
     category: "kids",
   },
 ];
+if (document.cookie.search(/"arr="/) != -1) {
+  var carts = document.cookie.split();
+  var cartArr = carts[1].split(",");
+} else {
+  var cartArr = [];
+}
+
+tempArr = document.cookie.search();
+function saveId(event) {
+  cartArr.push(event.target.id);
+  document.cookie = "arr=" + cartArr;
+  var link = document.getElementById("mycart");
+  link.innerText = "My Cart(" + cartArr.length + ")";
+}
 
 function getAllProducts() {
   var row = document.getElementById("productsrow");
@@ -267,9 +279,4 @@ function filterItems(event) {
         cards[i].classList.add("hidden");
     }
   }
-}
-
-function saveId(event) {
-  cartArr.push(event.target.id);
-  document.cookie = "arr=" + cartArr;
 }

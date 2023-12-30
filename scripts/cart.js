@@ -212,7 +212,9 @@ function viewCarts() {
         img.setAttribute("src", products[j].imagePath);
         img.style["width"] = "100%";
         var detailsDiv = document.createElement("div");
-        detailsDiv.classList.add("col-md-9", "mt-3");
+        detailsDiv.classList.add("col-md-9");
+        innerdiv = document.createElement("div");
+        innerdiv.classList.add("mt-3");
         var p1 = document.createElement("p");
         p1.innerText = "Description : " + products[j].description;
         var p2 = document.createElement("p");
@@ -221,17 +223,29 @@ function viewCarts() {
         p3.innerText = "price : " + products[j].price;
         var btn = document.createElement("button");
         btn.classList.add("btn", "btn-dark", "btn-block");
+        btn.setAttribute("onclick", "remove(event)");
+        btn.setAttribute("id", products[j].price);
         btn.innerText = "remove";
         imgDiv.appendChild(img);
-        detailsDiv.appendChild(p1);
-        detailsDiv.appendChild(p2);
-        detailsDiv.appendChild(p3);
-        detailsDiv.appendChild(btn);
+        innerdiv.appendChild(p1);
+        innerdiv.appendChild(p2);
+        innerdiv.appendChild(p3);
+        innerdiv.appendChild(btn);
+        detailsDiv.appendChild(innerdiv);
         row.appendChild(imgDiv);
         row.appendChild(detailsDiv);
         console.log(row);
         divContainer.appendChild(row);
+        sum += products[j].price;
       }
     }
   }
+  console.log(sum);
+}
+
+function remove(event) {
+  sum -= Number(event.target.id);
+  var row = event.target.parentNode.parentNode.parentNode;
+  row.remove();
+  console.log(Math.round(sum));
 }

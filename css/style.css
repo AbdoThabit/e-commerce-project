@@ -6,10 +6,10 @@ body {
   /* height: 10000px; */
 }
 
-#slider {
+/* #slider {
   position: relative;
   left: 4%;
-}
+} */
 
 #header {
   background-color: #333;
@@ -77,6 +77,6 @@ body {
 .hidden {
   display: none;
 }
-#details {
+/* #details {
   padding: 5%;
-}
+} */
