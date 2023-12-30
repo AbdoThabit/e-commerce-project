@@ -197,6 +197,7 @@ const products = [
 sum = 0;
 function viewCarts() {
   var divContainer = document.getElementById("maindiv");
+  var totalPrice = document.getElementById("total");
   console.log(divContainer);
   var arr = document.cookie.split("=");
   var carts = arr[1].split(",");
@@ -240,12 +241,17 @@ function viewCarts() {
       }
     }
   }
-  console.log(sum);
+  if (sum != 0) totalPrice.innerText = "Total price = " + sum + "$";
 }
 
 function remove(event) {
-  sum -= Number(event.target.id);
   var row = event.target.parentNode.parentNode.parentNode;
   row.remove();
   console.log(Math.round(sum));
+  var totalPrice = document.getElementById("total");
+  sum -= Number(event.target.id);
+  totalPrice.innerText = "Total price = " + Math.round(sum) + "$";
+  if (Math.round(sum) == 0) {
+    totalPrice.innerText = "";
+  }
 }
